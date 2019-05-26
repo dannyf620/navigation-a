@@ -1,0 +1,33 @@
+<form class="example-form" (ngSubmit)="enviarFormulario()">
+
+  <mat-form-field>
+    <input matInput name="fecha" [(ngModel)]="Fecha_Creacion" [matDatepicker]="picker" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input [(ngModel)]="Tipo" name="tipo" matInput placeholder="Tipo " value="Sushi">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input [(ngModel)]="Ubicacion" name="ubicacion" matInput placeholder="Ubicacion " value="Sushi">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input [(ngModel)]="Sede" name="sede" matInput placeholder="Sede" value="Sushi">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Leave a comment"></textarea>
+  </mat-form-field>
+  <button type="submit" mat-raised-button color="accent">Enviar</button>
+
+
+  <div *ngIf="salas && salas.length>0">
+    <div *ngFor="let sala of salas" >
+      <h1>{{sala.Sede}}</h1>
+      <h1>{{sala.Tipo}}</h1>
+      <h1>{{sala.createdAt | date}}</h1>
+    </div>
+  </div>
+
+</form>
